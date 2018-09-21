@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog - Benjamin R. Jack</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link href="http://www.benjack.io/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="http://www.benjack.io/style.css">
+	<link rel="stylesheet" type="text/css" href="http://www.benjack.io/syntax.css">
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-64753931-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<header>
+		
+		
+		<div class="container" id="navigation">
+			<h1 id="name"><a href="/">Benjamin R. Jack</a></h1>
+			<ul>
+				<li><a href="/index.html#section1" class="red">About</a></li>
+				<li><a href="/blog.html" class="orange_active">Blog</a></li>
+				<li><a href="/cv.html" class="green">CV</a></li>
+				<li><a href="/research.html" class="blue">Projects</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="container">
+
+<h2>Welcome To My Blog</h2>
+<p>I write about computational biology, bioinformatics, programming, graduate school, and other things I find interesting.</p>
+
+<ul class="bloglist">
+<hr />
+  
+    <li>
+      <h4><a href="/2018/02/02/python-cpp-revisited.html">Hybrid Python/C++ packages, revisited</a></h4>
+      <br />
+    	Last year I published a blog post that explained how to structure a Python package with a C++ extension module. My goal was to craft a Python package that leveraged C++ for performance and had an easily maintainable and testable structure. Well, seven months later, I'm revisiting Python/C++ packaging. I'm now convinced that the structure that I described in my original post is not ideal. This post will lay out the problems I discovered with my prior approach, and a complete guide to my new approach. I'll conclude with some thoughts on the big picture of working on projects with mixed codebases. 
+     <span class="date">02 Feb 2018</span>
+    </li>
+    <hr />
+  
+    <li>
+      <h4><a href="/2017/06/12/python-cpp-tests.html">Building and testing a hybrid Python/C++ package</a></h4>
+      <br />
+    	For my research, I've spent the better part of the last year developing a simulation tool in Python. Python abstracts away things like memory management and type information, making it a great language for working through high-level design decisions. But for simulation software, pure Python is slow. So I've taken to a workflow of prototyping in Python and then rewriting portions of the code base into C++ for performance. I'm left with a high-performance Python package that mixes both Python modules and compiled C++-based extension modules. This combination leverages both the simplicity of Python and the efficiency of C++. 
+     <span class="date">12 Jun 2017</span>
+    </li>
+    <hr />
+  
+    <li>
+      <h4><a href="/2016/06/11/embed-fonts.html">Embedding fonts into R-generated PDFs on OS X</a></h4>
+      <br />
+    	I use R with ggplot2 to create publication-ready figures in PDF format. Using a combination of ggplot2 and cowplot, I rarely make any manual changes with Adobe Illustrator or any other vector-based editing tool. These script-generated PDF figures make it easy to modify my analyses without worrying about manually reformatting my figures. Unfortunately, when R generates a PDF, it does not embed the fonts. To understand why embedding fonts matters, compare the two plots below:
+
+ 
+     <span class="date">11 Jun 2016</span>
+    </li>
+    <hr />
+  
+    <li>
+      <h4><a href="/2016/01/02/el-capitan-biocomputing.html">Setting up El Capitan (or Sierra) for biocomputing</a></h4>
+      <br />
+    	I recently wiped my Macbook Pro and reinstalled Mac OS X El Capitan. I did this for several reasons, but mostly because I was thoroughly frustrated with MacPorts and wanted to switch to Homebrew (more on that later). To cleanly rid my laptop of MacPorts, I started with a fresh copy of El Capitan. This guide describes the steps I took to configure El Capitan for biocomputing. 
+     <span class="date">02 Jan 2016</span>
+    </li>
+    <hr />
+  
+    <li>
+      <h4><a href="/2015/06/16/welcome.html">Welcome to my new website, powered by Github pages and Jekyll</a></h4>
+      <br />
+    	As my second year of graduate school approaches, I have decided to launch a personal website. I am including this blog as an opportunity to develop my writing skills outside of academic journals and conference proceedings. I will use this space to discuss recent publications, offer tutorials for useful scripts I have written, and discuss compelling topics in science and programming.
+
+ 
+     <span class="date">16 Jun 2015</span>
+    </li>
+    <hr />
+  
+</ul>
+
+
+			<ul id="contact" class="foot">
+				<li><a href="mailto:benjamin.r.jack@gmail.com?Subject=Hello%20Benjamin" id="email">benjamin.r.jack@gmail.com</a></li>
+				<li><a href="https://twitter.com/benrjack" id="twitter">@benrjack</a></li>
+				<li><a href="http://www.linkedin.com/in/benjaminrjack" id="linkedin">benjaminrjack</a></li>
+				<li><a href="http://www.github.com/benjaminjack" id="github">benjaminjack</a></li>
+			</ul>
+
+
+	</div>
+
+</body>
+</html>
