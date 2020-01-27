@@ -14,6 +14,9 @@ let zoom = 4;
 let zMin = 1
 let zMax = 13
 let sensativity = .01
+let a_slider;
+let b_slider;
+let c_slider;
 
 let points = new Array();
 
@@ -24,21 +27,29 @@ function mouseWheel(event) {
   return false;
 }
 
-
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     canvas.position(0,0);
     canvas.style('z-index', '-1');
     colorMode(HSB);
+    a_slider = createSlider(a/2.0, a*2.0, a, a*.01);
+    b_slider = createSlider(b/2.0, b*2.0, b, b*.01);
+    c_slider = createSlider(c/2.0, c*2.0, c, c*.01);
+
+    a_slider.position(windowWidth/2-a_slider.width, windowHeight/2+50)
+    b_slider.position(windowWidth/2-a_slider.width, windowHeight/2+100)
+    c_slider.position(windowWidth/2-a_slider.width, windowHeight/2+150)
 }
 
 function draw() {
   background(0);
-
+textSize(32);
+textFont('Helvetica');
+fill(255);
   let dt = 0.007;
-  let dx = a * (y - x) * dt;
-  let dy = (x * (b - z) - y) * dt;
-  let dz = (x * y - c * z) * dt;
+  let dx = a_slider.value() * (y - x) * dt;
+  let dy = (x * (b_slider.value() - z) - y) * dt;
+  let dz = (x * y - c_slider.value() * z) * dt;
   x = x + dx;
   y = y + dy;
   z = z + dz;
@@ -70,5 +81,3 @@ function draw() {
   }
   endShape();
 }
-
-
