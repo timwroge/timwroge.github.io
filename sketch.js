@@ -26,7 +26,9 @@ function mouseWheel(event) {
 
 
 function setup() {
-    createCanvas(windowWidth, windowHeight, WEBGL);
+    var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+    canvas.position(0,0);
+    canvas.style('z-index', '-1');
     colorMode(HSB);
 }
 
