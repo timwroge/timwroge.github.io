@@ -36,9 +36,9 @@ function setup() {
     b_slider = createSlider(b/2.0, b*2.0, b, b*.01);
     c_slider = createSlider(c/2.0, c*2.0, c, c*.01);
 
-    a_slider.position(windowWidth/2-a_slider.width, windowHeight/2+50)
-    b_slider.position(windowWidth/2-a_slider.width, windowHeight/2+100)
-    c_slider.position(windowWidth/2-a_slider.width, windowHeight/2+150)
+    a_slider.position(windowWidth-a_slider.width*2, windowHeight/2+50)
+    b_slider.position(windowWidth-a_slider.width*2, windowHeight/2+100)
+    c_slider.position(windowWidth-a_slider.width*2, windowHeight/2+150)
 }
 
 function draw() {
