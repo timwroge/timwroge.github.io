@@ -283,24 +283,29 @@ ul.cv {
 	margin: 1em 0;
 	padding: 0;
 	list-style: none;
+    color: white;
 }
 
 ul.cv li {
 	padding-left: 2em;
 	text-indent: -2em;
+    color: white;
 }
 
 dl.cv {
 	overflow: hidden;
+    color: white;
 }
 
 dl.cv dt {
 	font-style: italic;
+    color: white;
 }
 
 dl.cv dd {
 	padding: 0;
 	margin: 0 0 0.5em;
+    color: white;
 }
 
 div.post img {
