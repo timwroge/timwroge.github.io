@@ -10,7 +10,7 @@ let rot_y = 0;
 let sign = 1;
 let hu_sign = 1;
 let z_pos = 200;
-let zoom = 1.59;
+let zoom = 2;
 let zMin = 1
 let zMax = 13
 let sensativity = .01
@@ -32,13 +32,6 @@ function setup() {
     canvas.position(0,0);
     canvas.style('z-index', '-1');
     colorMode(HSB);
-    a_slider = createSlider(a/2.0, a*2.0, a, a*.01);
-    b_slider = createSlider(b/2.0, b*2.0, b, b*.01);
-    c_slider = createSlider(c/2.0, c*2.0, c, c*.01);
-
-    a_slider.position(windowWidth-a_slider.width*2, windowHeight/2+50)
-    b_slider.position(windowWidth-a_slider.width*2, windowHeight/2+100)
-    c_slider.position(windowWidth-a_slider.width*2, windowHeight/2+150)
 }
 
 function draw() {
@@ -47,9 +40,9 @@ textSize(32);
 textFont('Helvetica');
 fill(255);
   let dt = 0.007;
-  let dx = a_slider.value() * (y - x) * dt;
-  let dy = (x * (b_slider.value() - z) - y) * dt;
-  let dz = (x * y - c_slider.value() * z) * dt;
+  let dx = a * (y - x) * dt;
+  let dy = (x * (b - z) - y) * dt;
+  let dz = (x * y - c * z) * dt;
   x = x + dx;
   y = y + dy;
   z = z + dz;
