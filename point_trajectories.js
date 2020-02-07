@@ -13,14 +13,14 @@ function linspace(min, max, number){
 x_points = 10
 y_points = 10
 z_points = 10
-dim_max = 70
+dim_max = 9
 
 let xs = linspace(-dim_max, dim_max, x_points)
 let ys = linspace(-dim_max, dim_max, y_points)
 let zs = linspace(-dim_max, dim_max, z_points)
 let hu_sign = 1;
 let z_pos = 2;
-let zoom = 3;
+let zoom = 6;
 let zMin = -10
 let zMax = 10
 let dt = 0.007;
@@ -73,16 +73,14 @@ function draw() {
     fill(255);
     orbitControl();
     let points = new Array()
-    let lines = new Array()
     for (let i= 0; i<xs.length; i++){
         for (let j= 0; j<ys.length; j++){
             for (let k= 0; k<zs.length; k++){
                 let [dx, dy, dz] = dynamical_system(particles[i][j][k][0], particles[i][j][k][1],particles[i][j][k][2],  dt);
-                particles[i][j][k][0]= particles[i][j][k][0] ;
-                particles[i][j][k][1] = particles[i][j][k][1] ;
-                particles[i][j][k][2] = particles[i][j][k][2];
+                particles[i][j][k][0]= particles[i][j][k][0] + dx;
+                particles[i][j][k][1] = particles[i][j][k][1] + dy;
+                particles[i][j][k][2] = particles[i][j][k][2] + dz;
                 points.push(new p5.Vector(particles[i][j][k][0],particles[i][j][k][1],particles[i][j][k][2]  ));
-                lines.push(new p5.Vector(dx,dy,dz));
             }
         }
     }
@@ -111,29 +109,12 @@ function draw() {
   endShape();
 
     // draw all the points
-  for (let index = 0; index < points.length; index++) {
-        v = points[index]
-        direction = lines[index]
-        stroke(hu, 255, 255);
-        point(v.x, v.y, v.z);
-
-        beginShape();
-        vertex(v.x, v.y, v.z);
-        vertex(direction.x, direction.y, direction.z);
-        endShape();
-        hu += hu_sign*.5;
-        if (hu > 255 || hu <0) {
-            hu_sign *= -1;
-        }
-  }
-
-    for (let line of lines){
+  for (let v of points) {
     stroke(hu, 255, 255);
-    vertex(v.x, v.y, v.z);
+    point(v.x, v.y, v.z);
     hu += hu_sign*.5;
     if (hu > 255 || hu <0) {
       hu_sign *= -1;
     }
-
-    }
+  }
 }
