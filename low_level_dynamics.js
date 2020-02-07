@@ -13,7 +13,7 @@ function linspace(min, max, number){
 x_points = 10
 y_points = 10
 z_points = 10
-dim_max = 70
+dim_max = 80
 
 let xs = linspace(-dim_max, dim_max, x_points)
 let ys = linspace(-dim_max, dim_max, y_points)
@@ -24,6 +24,7 @@ let zoom = 3;
 let zMin = -10
 let zMax = 10
 let dt = 0.007;
+sensativity = 0.01
 
 // makes a repeat vector of size
 function initialize_particles(){
@@ -57,39 +58,6 @@ function setup() {
     canvas.position(0,0);
     canvas.style('z-index', '-1');
     colorMode(HSB);
-}
-
-function dynamical_system(x, y, z, dt){
-    _dx = 10.0 * (y - x) * dt;
-    _dy = x * (28.0 - z)* dt;
-    _dz = (x*y - 8.0/3*z)* dt
-    return [_dx, _dy, _dz]
-}
-
-function draw() {
-  background(0);
-    textSize(32);
-    textFont('Helvetica');
-    fill(255);
-    orbitControl();
-    let points = new Array()
-    let lines = new Array()
-    for (let i= 0; i<xs.length; i++){
-        for (let j= 0; j<ys.length; j++){
-            for (let k= 0; k<zs.length; k++){
-                let [dx, dy, dz] = dynamical_system(particles[i][j][k][0], particles[i][j][k][1],particles[i][j][k][2],  dt);
-                particles[i][j][k][0]= particles[i][j][k][0] ;
-                particles[i][j][k][1] = particles[i][j][k][1] ;
-                particles[i][j][k][2] = particles[i][j][k][2];
-                points.push(new p5.Vector(particles[i][j][k][0],particles[i][j][k][1],particles[i][j][k][2]  ));
-                lines.push(new p5.Vector(dx,dy,dz));
-            }
-        }
-    }
-
-  scale(zoom);
-  noFill();
-    // draw axes
 
   let hu = 0;
   stroke(hu, 255, 255);
@@ -109,6 +77,43 @@ function draw() {
     vertex(0.0, 0.0, 0.0);
     vertex(0.0, 0.0, 1.0);
   endShape();
+}
+
+let points = new Array()
+let lines = new Array()
+for (let i= 0; i<xs.length; i++){
+    for (let j= 0; j<ys.length; j++){
+        for (let k= 0; k<zs.length; k++){
+            let [dx, dy, dz] = dynamical_system(particles[i][j][k][0], particles[i][j][k][1],particles[i][j][k][2],  dt);
+            particles[i][j][k][0]= particles[i][j][k][0] ;
+            particles[i][j][k][1] = particles[i][j][k][1] ;
+            particles[i][j][k][2] = particles[i][j][k][2];
+            points.push(new p5.Vector(particles[i][j][k][0],particles[i][j][k][1],particles[i][j][k][2]  ));
+            lines.push(new p5.Vector(dx,dy,dz));
+        }
+    }
+}
+
+
+function dynamical_system(x, y, z, dt){
+    _dx = 10.0 * (y - x) * dt;
+    _dy = x * (28.0 - z)* dt;
+    _dz = (x*y - 8.0/3*z)* dt
+    return [_dx, _dy, _dz]
+}
+
+function draw() {
+  background(0);
+    textSize(32);
+    textFont('Helvetica');
+    fill(255);
+    orbitControl();
+
+  scale(zoom);
+  noFill();
+    // draw axes
+  let hu = 0;
+
 
     // draw all the points
   for (let index = 0; index < points.length; index++) {
