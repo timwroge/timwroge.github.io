@@ -23,7 +23,7 @@ let z_pos = 2;
 let zoom = 6;
 let zMin = -10
 let zMax = 10
-let dt = 0.007;
+let dt = 0.003;
 
 // makes a repeat vector of size
 function initialize_particles(){
