@@ -11,8 +11,7 @@ body {
 	line-height: 20pt;
 	margin: 0;
 	padding: 0 0.5em 3em 0.5em;
-	background: black url("img/pymol.jpg") no-repeat 90% top;
-	background-size: 700px;
+    background-color: #000000;
 }
 
 pre {
