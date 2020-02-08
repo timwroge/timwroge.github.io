@@ -114,7 +114,7 @@ div#navigation.home ul, div#navigation ul {
 }
 
 div#navigation.home ul li, div#navigation ul li {
-	background-color: white;
+	background-color: black;
 	padding: 0.1em 0 0.1em 0;
 	margin: 0 -0.2em 0 -0.2em;
 	display: inline-block;
