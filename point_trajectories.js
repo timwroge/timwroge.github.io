@@ -23,7 +23,7 @@ let z_pos = 2;
 let zoom = 6;
 let zMin = -10
 let zMax = 10
-let dt = 0.003;
+let dt = 0.001;
 
 // makes a repeat vector of size
 function initialize_particles(){
@@ -57,6 +57,7 @@ function setup() {
     canvas.position(0,0);
     canvas.style('z-index', '-1');
     colorMode(HSB);
+
 }
 
 function dynamical_system(x, y, z, dt){
