@@ -13,14 +13,14 @@ function linspace(min, max, number){
 x_points = 10
 y_points = 10
 z_points = 10
-dim_max = 9
+dim_max = 100
 
 let xs = linspace(-dim_max, dim_max, x_points)
 let ys = linspace(-dim_max, dim_max, y_points)
 let zs = linspace(-dim_max, dim_max, z_points)
 let hu_sign = 1;
 let z_pos = 2;
-let zoom = 6;
+let zoom = 1;
 let zMin = -10
 let zMax = 10
 let dt = 0.001;
@@ -62,9 +62,14 @@ function setup() {
 
 function dynamical_system(x, y, z, dt){
     _dx = 10.0 * (y - x) * dt;
-    _dy = x * (28.0 - z)* dt;
+    _dy = x * (8.0 - z)* dt;
     _dz = (x*y - 8.0/3*z)* dt
     return [_dx, _dy, _dz]
+}
+
+function vec_to_hue(x, y, z) {
+    s = .0005
+    return 255.0/2*Math.sin(s*( x*x, y*y, z*z)) + 255.0/2
 }
 
 function draw() {
@@ -111,11 +116,8 @@ function draw() {
 
     // draw all the points
   for (let v of points) {
+    hu = vec_to_hue(v.x, v.y, v.z)
     stroke(hu, 255, 255);
     point(v.x, v.y, v.z);
-    hu += hu_sign*.5;
-    if (hu > 255 || hu <0) {
-      hu_sign *= -1;
-    }
   }
 }
