@@ -74,6 +74,7 @@ function draw() {
     fill(255);
     orbitControl();
     let points = new Array()
+
     for (let i= 0; i<xs.length; i++){
         for (let j= 0; j<ys.length; j++){
             for (let k= 0; k<zs.length; k++){

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Perlin Noise</title>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="syntax.css">
+	<style>
+		body {
+            margin:0;
+            margin-left:45px;
+            padding:0;
+            overflow: hidden;
+            background-color: #000000;
+        }
+		canvas {
+			margin:auto;
+		}
+	</style>
+	<script type="text/javascript" src="perlin_landscape.js"></script>
+</head>
+<body>
+	<header>
+		<div class="container" id="navigation">
+			<h1 id="name" ><a href="/">Timothy J. Wroge</a></h1>
+		</div>
+	</header>
+    <center>
+        <table  style="height:50%"  >
+            <tr>
+            <td>
+                <div id="perlin-noise"></div>
+            </td>
+            <td>
+			<h2 style="color:white"  >Noise Sliders</h2>
+			<p style="color:white"  >Noise: <span id="noise" ></span></p>
+            <input type="range" min="1" max="40" value="5" class="slider" id="noise_sliders">
+            <p style="color:white"  >Granularity: <span id="gran" ></span></p>
+            <input type="range" step=1 min="1" max="10" value="1" class="slider" id="gran_sliders">
+                <script type="text/javascript" >
+                    // make slider to change value of noise and amplitude
+                var slider_noise = document.getElementById("noise_sliders");
+                var slider_gran = document.getElementById("gran_sliders");
+
+                // Update the current slider value (each time you drag the slider handle)
+                slider_noise.oninput = function() {
+                  slider_noise_val = this.value;
+                    document.getElementById("noise" ).innerText = this.value;
+                }
+                slider_gran.oninput = function() {
+                  slider_gran_val = this.value;
+                    document.getElementById("gran" ).innerText = this.value;
+                }
+                </script>
+            </td>
+            </tr>
+        </table>
+    </center>
+			<ul id="contact" class="foot">
+				<li><a href="mailto:timothy.wroge@pitt.edu?Subject=Hello%20Tim" id="email">timothy.wroge@pitt.edu</a></li>
+				<li><a href="https://www.linkedin.com/in/timothy-wroge/" id="linkedin">LinkedIn</a></li>
+				<li><a href="http://www.github.com/timwroge" id="github">GitHub</a></li>
+			</ul>
+</body>
+</html>
