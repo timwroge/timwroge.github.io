@@ -2,8 +2,8 @@ gridsize = 10.0;
 grid_limits = 100
 inc=0.0;
 offset=20.0
-slider_noise_val = 10
-slider_gran_val = 3
+slider_noise_val = 29
+slider_gran_val = 2
 time = 0
 function setup() {
     var canvas = createCanvas(windowWidth*0.8, windowHeight*.8, WEBGL);
