@@ -25,8 +25,7 @@ function draw() {
         noFill();
         beginShape();
         for (x = xmin; x < xmax; x+=int(slider_gran_val)) {
-            z = noise(x/slider_noise_val, y/slider_noise_val)*200
-            alpha = map(y*300, 0, 60, 255);
+            z = Math.exp(8*noise(x/slider_noise_val, y/slider_noise_val))
             stroke((ymax - y)/ (ymax-ymin)*255 , 255, 255);
             vertex(( x )*gridsize, ( y - time)*gridsize, z)
         }
